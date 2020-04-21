@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace eVNVC.Data.EF
 {
@@ -20,7 +21,7 @@ namespace eVNVC.Data.EF
             var connectionString = configuration.GetConnectionString("eVNVCDb");
 
             var optionsBuilder = new DbContextOptionsBuilder<EVNVCDbContext>();
-            optionsBuilder.UseMySQL(connectionString);
+            optionsBuilder.UseMySql(connectionString);
 
             return new EVNVCDbContext(optionsBuilder.Options);
         }

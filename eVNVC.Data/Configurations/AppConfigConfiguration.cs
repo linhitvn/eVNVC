@@ -14,8 +14,9 @@ namespace eVNVC.Data.Configurations
             builder.ToTable("AppConfigs");
 
             builder.HasKey(x => x.Key);
+            builder.Property(x => x.Key).HasMaxLength(50);
 
-            builder.Property(x => x.Value).IsRequired(true);
+            builder.Property(x => x.Value).IsRequired(true).HasMaxLength(500);
         }
     }
 }
